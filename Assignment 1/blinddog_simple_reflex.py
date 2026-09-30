@@ -227,6 +227,8 @@ class Park(Environment):
         return dead_agents or no_edibles
     #########
     # So we defined everything now we can run a program#
+
+
 class BlindDog(Agent):
     location = 1
     
@@ -257,6 +259,8 @@ def program(percepts):
             return 'eat'
         elif isinstance(p, Water):
             return 'drink'
+        # Added action for the agents if the percept is a 
+        # Person object, the dog will bark at the person
         elif isinstance(p, Person):
             return 'bark'
     return 'move down'   
@@ -268,8 +272,6 @@ def program(percepts):
 park = Park()
 dog = BlindDog(program)
 dogfood = Food()
-wala = Food()
-park.add_thing(wala, 3)
 water = Water()
 park.add_thing(dog, 1)
 park.add_thing(dogfood, 5)
